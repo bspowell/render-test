@@ -1,19 +1,19 @@
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const userSchema = mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true // this ensures the uniqueness of username
+    unique: true
   },
   name: String,
-  passowordHash: String,
+  passwordHash: String,
   notes: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Note'
     }
-  ]
+  ],
 })
 
 userSchema.set('toJSON', {
